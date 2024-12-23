@@ -38,9 +38,10 @@ class State {
   boolean edit = false;
 
   final int fontSize = 21;
-  final int activeMargin = 3;
+  final int activeMargin = 6;
 
   public void init() {
+    strokeWeight(4);
     textSize(fontSize);
     textAlign(LEFT, TOP);
   }
@@ -95,14 +96,14 @@ class State {
     text(this.running ? "ON" : "OFF", 10, 10);
 
     if (edit) {
-      fill(50, 50, 50);
+      fill(100, 100, 100);
       noStroke();
     } else {
       noFill();
       stroke(250, 255, 83);
     }
 
-    rect(10 - activeMargin, 60 - activeMargin + activeParamIndex * 50, 310, 27);
+    rect(10 - activeMargin, 60 - activeMargin + activeParamIndex * 50, 290, 27);
 
     fill(100, 100, 100);
     for (int i = 0; i < params.length; i++) {
@@ -110,7 +111,7 @@ class State {
         fill(255, 255, 255);
       }
 
-      text(params[i].name, 10, 60 + i * 50);
+      text(params[i].name, 15, 60 + i * 50);
       text(params[i].value, 200, 60 + i * 50);
 
       if (i == activeParamIndex) {

@@ -22,6 +22,7 @@ comes with a port for 2.5mm hose
 https://robu.in/product/hx710b-air-pressure-0-40kpa-sensor-module/
 
 https://www.electroschematics.com/pressure-sensor-guide/
+    - uses: https://github.com/bogde/HX711
 
 https://forum.arduino.cc/t/using-hx710b-pressure-sensor/648374/3
 

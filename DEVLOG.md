@@ -14,3 +14,5 @@ Read raw sensor value using `HX711::read()`, then did manual calibration:
 5. Noticed that Air Compressors for vehicle tyres, like [this Xiaomi product](https://www.mi.com/in/product/mi-portable-electric-air-compressor/) serve a similar purpose, with a pump, sensor, display and control loop.
 
 6. Pump blows outward regardless of direction of rotation. To decrease pressure, use a solenoid valve. But the commonly available solenoid valves need $12V$ or $24V$ input, so use try a boost converter to convert $5V$ to $12V$. To toggle it on and off, connect it to the motor driver shield.
+
+7. The cuff is a greater load than the mercury column of the sphygmomanometer, so the former needs running the motor faster. Motor doesn't seem to run at speeds lower than 0.5, possibly because of starting when load is connected.

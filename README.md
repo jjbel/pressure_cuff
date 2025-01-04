@@ -42,6 +42,10 @@ To convert $5V$ from motor shield to $12V$ for solenoid valve.
 
 https://amzn.in/d/8wb3pvw
 
+Tutorial: https://youtu.be/ehxq8R4muGI
+
+Explanation: https://www.monolithicpower.com/en/learning/mpscholar/power-electronics/dc-dc-converters/buck-boost-converters
+
 ### Screen
 
 https://robu.in/product-category/microcontroller-development-board/arduino-boards/display-for-arduino/

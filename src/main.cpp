@@ -43,32 +43,37 @@ void loop() {
   const float pressure = val * 0.0000138368 + 18.38962;
   println(pressure, "mm Hg");
 
-  if (pressure < SETPOINT) {
-    float factor = 255 /* * (4.0 / 8) */;
-    motor.setSpeed(factor);
-    motor.run(FORWARD);
+  //   if (pressure < 0.75 * SETPOINT) {
+  //     float factor = 1.0;
+  //     motor.setSpeed(255 * factor);
+  //     motor.run(FORWARD);
+  //   } else if (pressure < SETPOINT) {
+  //     float factor = 0.5;
+  //     motor.setSpeed(255 * factor);
+  //     motor.run(FORWARD);
+  //   }
 
+  if (pressure < 80) {
+    float factor = 1.0;
+    motor.setSpeed(255 * factor);
+    motor.run(FORWARD);
+  } else {
+    motor.run(RELEASE);
+  }
+  //   else if (pressure < SETPOINT) {
+  //     float factor = 0.5;
+  //     motor.setSpeed(255 * factor);
+  //     motor.run(FORWARD);
+  //   }
+
+  if (pressure < 90 /* mm Hg */) {
     solenoid.setSpeed(255);
     solenoid.run(FORWARD);
   } else {
-    // motor.run(RELEASE);
     solenoid.run(RELEASE);
-
-    // println("done");
-    // delay(100);
   }
 
-  //   if (frame < 50) {
-  //     solenoid.setSpeed(255);
-  //     solenoid.run(FORWARD);
-  //   } else {
-  //     println("release");
-  //   }
-
-//   delay(500);
+  //   delay(500);
 
   frame++;
 }
-
-// with bp app and not cuff, pressure rises quickly, so ran at 3/8 speed with 2s
-// lag with cuff, pressure rises slowly

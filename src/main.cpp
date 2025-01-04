@@ -44,17 +44,26 @@ void loop() {
   println(pressure, "mm Hg");
 
   if (pressure < SETPOINT) {
-    float factor = 255 * (4.0 / 8);
+    float factor = 255 /* * (4.0 / 8) */;
     motor.setSpeed(factor);
     motor.run(FORWARD);
+
+    solenoid.setSpeed(255);
+    solenoid.run(FORWARD);
   } else {
-    motor.run(RELEASE);
-    println("done");
-    delay(2000);
+    // motor.run(RELEASE);
+    solenoid.run(RELEASE);
+
+    // println("done");
+    // delay(100);
   }
 
-  solenoid.setSpeed(255);
-  solenoid.run(FORWARD);
+  //   if (frame < 50) {
+  //     solenoid.setSpeed(255);
+  //     solenoid.run(FORWARD);
+  //   } else {
+  //     println("release");
+  //   }
 
 //   delay(500);
 

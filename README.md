@@ -46,6 +46,16 @@ Tutorial: https://youtu.be/ehxq8R4muGI
 
 Explanation: https://www.monolithicpower.com/en/learning/mpscholar/power-electronics/dc-dc-converters/buck-boost-converters
 
+### 3 way Solenoid valve
+
+(?Purchase Link)
+
+Needs 12V power
+
+https://www.fluidcontrols.co.uk/how-solenoid-valves-work/
+
+https://www.iqsdirectory.com/articles/solenoid-valve/3-way-solenoid-valves.html
+
 ### Screen
 
 https://robu.in/product-category/microcontroller-development-board/arduino-boards/display-for-arduino/

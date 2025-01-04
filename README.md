@@ -13,6 +13,7 @@ Has a separate sensor to continuously measure pressure, connected with a T junct
 ### Our Device
 
 Only increases and decreases pressure cyclically
+
 There are leaks etc, so motor needs to keep running to maintain pressure
 Possibly use PID control
 
@@ -32,7 +33,14 @@ https://forum.arduino.cc/t/using-hx710b-pressure-sensor/648374/3
 ### Mitsumi R-14 A212: air pump
 
 Currently unavailable :(
+
 Can harvest existing BP devices for the pump
+
+### XL6009 boost converter
+
+To convert $5V$ from motor shield to $12V$ for solenoid valve.
+
+https://amzn.in/d/8wb3pvw
 
 ### Screen
 

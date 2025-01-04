@@ -1,4 +1,7 @@
-# Existing Blood Pressure Monitor
+A device to apply and release pressure in a cuff wrapped around a limb, to ease pain.
+
+
+### How existing digital blood pressure monitors work
 
 Motor pump increases pressure in cuff
 
@@ -7,7 +10,7 @@ This is not needed for our device
 
 Has a separate sensor to continuously measure pressure, connected with a T junction between the pump and the cuff.
 
-# Our Device
+### Our Device
 
 Only increases and decreases pressure cyclically
 There are leaks etc, so motor needs to keep running to maintain pressure

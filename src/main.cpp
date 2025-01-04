@@ -14,7 +14,7 @@ AF_DCMotor motor = AF_DCMotor(1);
 
 void setup() {
   Serial.begin(38400);
-  sensor_init(sensor, A1, A0, 1.f);
+  sensor_init(sensor, /* dout */ A1, /* sck */ A0);
 
   frame = 0;
   time = millis();

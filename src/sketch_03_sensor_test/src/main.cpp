@@ -34,16 +34,25 @@ float read() {
   //   println(frame, millis(), read());
 }
 
+const float SETPOINT = 40; // mm Hg
+
 void loop() {
-  float factor = 255 * 0.25;
-  motor.setSpeed(factor);
-  motor.run(FORWARD);
-
   const float val = float(sensor.read());
+  const float pressure = val * 0.0000138368 + 18.38962;
+  println(pressure, "mm Hg");
 
-  //   println(frame, /* millis(), */  +
-  //  1316000 /* sensor.get_offset(), read() */);
-//   println(val, val * 0.0000138368 + 18.38962, val * 0.0000138368 - 18.02885);
-  println(val * 0.0000138368 + 18.38962, "mm Hg");
+  if (pressure < SETPOINT) {
+    float factor = 255 * (6.0 / 8);
+    motor.setSpeed(factor);
+    motor.run(FORWARD);
+  } else {
+    motor.run(RELEASE);
+    println("done");
+    delay(2000);
+  }
+
   frame++;
 }
+
+// with bp app and not cuff, pressure rises quickly, so ran at 3/8 speed with 2s lag
+// with cuff, pressure rises slowly

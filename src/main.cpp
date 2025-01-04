@@ -12,6 +12,8 @@ uint64_t time = 0;
 
 AF_DCMotor motor = AF_DCMotor(1);
 
+AF_DCMotor solenoid = AF_DCMotor(2);
+
 void setup() {
   Serial.begin(38400);
   sensor_init(sensor, /* dout */ A1, /* sck */ A0);
@@ -42,7 +44,7 @@ void loop() {
   println(pressure, "mm Hg");
 
   if (pressure < SETPOINT) {
-    float factor = 255 * (6.0 / 8);
+    float factor = 255 * (4.0 / 8);
     motor.setSpeed(factor);
     motor.run(FORWARD);
   } else {
@@ -51,8 +53,13 @@ void loop() {
     delay(2000);
   }
 
+  solenoid.setSpeed(255);
+  solenoid.run(FORWARD);
+
+//   delay(500);
+
   frame++;
 }
 
-// with bp app and not cuff, pressure rises quickly, so ran at 3/8 speed with 2s lag
-// with cuff, pressure rises slowly
+// with bp app and not cuff, pressure rises quickly, so ran at 3/8 speed with 2s
+// lag with cuff, pressure rises slowly

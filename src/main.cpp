@@ -10,9 +10,9 @@ HX711 sensor;
 int frame = 0;
 uint64_t time = 0;
 
-AF_DCMotor motor = AF_DCMotor(1);
+AF_DCMotor motor = AF_DCMotor(4);
 
-AF_DCMotor solenoid = AF_DCMotor(2);
+AF_DCMotor solenoid = AF_DCMotor(3);
 
 void setup() {
   Serial.begin(38400);

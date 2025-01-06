@@ -58,4 +58,10 @@ Intent: programatically toggle solenoid using motor shield to give or cut DC out
 
 9. Final aim is not to maintain pressure but to cycle it. Leak with solenoid closed is too slow. Solenoid is needed for quickly reducing pressure, but it is too quick. Maybe could **open solenoid for only, say 10ms**
 
-10. Did plumbing changes along the way: added another T junction, removed the sphygmomanometer and added back the pressure cuff. 1 port of solenoid for input, one for electronic pressure release, and one kept shut, but can be manually opened for pressure release. 
+10. Did plumbing changes along the way: added another T junction, removed the sphygmomanometer and added back the pressure cuff. 1 port of solenoid for input, one for electronic pressure release, and one kept shut, but can be manually opened for pressure release.
+
+## `2025-01-05`
+
+1. Mounted components on a particle board panel (from Merwan's)
+
+2. switch motor and solenoid terminals to M4 and M# respectively

@@ -65,3 +65,9 @@ Intent: programatically toggle solenoid using motor shield to give or cut DC out
 1. Mounted components on a particle board panel (from Merwan's)
 
 2. switch motor and solenoid terminals to M4 and M# respectively
+
+## `2025-01-06`
+
+1. Test TFT display on a separate Arduino
+
+2. See README for links, tutorials, libraries

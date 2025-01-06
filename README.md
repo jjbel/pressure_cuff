@@ -60,7 +60,11 @@ https://www.iqsdirectory.com/articles/solenoid-valve/3-way-solenoid-valves.html
 
 https://robu.in/product-category/microcontroller-development-board/arduino-boards/display-for-arduino/
 
-https://www.google.com/search?q=arduino+screen+tutorial
+https://youtu.be/4DtuOeeYHys
+
+https://learn.adafruit.com/adafruit-2-8-and-3-2-color-tft-touchscreen-breakout-v2
+
+https://randomnerdtutorials.com/guide-to-1-8-tft-display-with-arduino/
 
 https://en.wikipedia.org/wiki/TFT_LCD: enlightening
 

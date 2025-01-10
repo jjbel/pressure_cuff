@@ -38,20 +38,19 @@ float read() {
 
 const float SETPOINT = 40; // mm Hg
 
+int count = 0;
+int start = millis();
+
 void loop() {
   const float val = float(sensor.read());
   const float pressure = val * 0.0000138368 + 18.38962;
-  println(pressure, "mm Hg");
 
-  //   if (pressure < 0.75 * SETPOINT) {
-  //     float factor = 1.0;
-  //     motor.setSpeed(255 * factor);
-  //     motor.run(FORWARD);
-  //   } else if (pressure < SETPOINT) {
-  //     float factor = 0.5;
-  //     motor.setSpeed(255 * factor);
-  //     motor.run(FORWARD);
-  //   }
+  if (pressure < 78) {
+    count = 0;
+    start = millis();
+  } else {
+    count = millis() - start;
+  }
 
   if (pressure < 80) {
     float factor = 1.0;
@@ -60,20 +59,18 @@ void loop() {
   } else {
     motor.run(RELEASE);
   }
-  //   else if (pressure < SETPOINT) {
-  //     float factor = 0.5;
-  //     motor.setSpeed(255 * factor);
-  //     motor.run(FORWARD);
-  //   }
 
-  if (pressure < 90 /* mm Hg */) {
+  println(pressure, "mm Hg", count);
+
+  if (count > 6000) {
+    Serial.println("Bam!");
+    solenoid.run(RELEASE);
+    delay(1000);
+    count = 0;
+    start = millis();
+  } else {
     solenoid.setSpeed(255);
     solenoid.run(FORWARD);
-  } else {
-    solenoid.run(RELEASE);
   }
-
-  //   delay(500);
-
   frame++;
 }

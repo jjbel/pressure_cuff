@@ -1,14 +1,16 @@
 #include "HX711.h"
-#include <AFMotor.h>
 #include <Arduino.h>
 
 #include "sensor_init.h"
 #include "util.h"
 
-const float SETPOINT = 80; // mm Hg
+const float SETPOINT = 40; // mm Hg
 const float DETECTION_FACTOR = 0.95;
-const float HOLD_SECONDS = 6;
+const float HOLD_SECONDS = 6000;
 const float DEFLATE_MS = 1000;
+
+#define enA 5
+#define enB 6
 
 HX711 sensor;
 
@@ -36,7 +38,6 @@ float read() {
   //   println(frame, millis(), read());
 }
 
-
 int count = 0;
 int start = millis();
 
@@ -53,23 +54,31 @@ void loop() {
 
   if (pressure < SETPOINT) {
     float factor = 1.0;
-    motor.setSpeed(255 * factor);
-    motor.run(FORWARD);
+    // motor.setSpeed(255 * factor);
+    // motor.run(FORWARD);
+    analogWrite(enA, 127 * factor);
+
   } else {
-    motor.run(RELEASE);
+    // motor.run(RELEASE);
+    analogWrite(enA, 0);
   }
 
   println(pressure, "mm Hg", count);
 
   if (count > HOLD_SECONDS * 1000) {
     Serial.println("Deflate!");
-    solenoid.run(RELEASE);
+    // solenoid.run(RELEASE);
+    analogWrite(enB, 0);
+
     delay(DEFLATE_MS);
     count = 0;
     start = millis();
   } else {
-    solenoid.setSpeed(255);
-    solenoid.run(FORWARD);
+    // solenoid.setSpeed(255);
+    // solenoid.run(FORWARD);
+    analogWrite(enB, 255);
   }
   frame++;
+
+  delay(100);
 }

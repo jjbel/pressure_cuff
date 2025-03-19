@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
-#define enA 9
-#define enB 10
+#define enA 5
+#define enB 6
 
 void setup() {
   pinMode(enA, OUTPUT);

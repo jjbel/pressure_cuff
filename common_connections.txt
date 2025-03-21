@@ -1,0 +1,31 @@
+GND:
+Power supply:
+3 Buttons
+Female:
+    motor driver:
+    1.    GND
+    2.    AIN2
+    3.    BIN2
+
+    4. display: GND
+    5. sensor GND
+
+Male: arduino GND
+
+5V:
+Female:
+    motor driver:
+    1.    VCC
+    2.    AIN1
+    3.    BIN1
+    4.    STDBY
+
+    5. display: VCC
+    6. sensor VCC
+
+Male: arduino 5V
+
+12V:
+Power supply
+Male: Arduino Vin
+Female: motor driver VM

@@ -30,7 +30,7 @@ struct Display {
     // Clear the buffer
     display.clearDisplay();
 
-    display.setTextSize(3); // Draw 2X-scale text
+    display.setTextSize(2); // Draw 2X-scale text
     display.setTextColor(WHITE);
   }
 

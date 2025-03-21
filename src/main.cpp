@@ -2,10 +2,11 @@
 #include <Arduino.h>
 
 #include "Display.h"
+#include "ParamList.h"
 #include "sensor_init.h"
 #include "util.h"
 
-const float SETPOINT = 120; // mm Hg
+// const float SETPOINT = 120; // mm Hg
 const float DETECTION_FACTOR = 0.95;
 const float HOLD_SECONDS = 6000;
 const float DEFLATE_MS = 1000;
@@ -18,6 +19,8 @@ HX711 sensor;
 int frame = 0;
 
 Display display;
+
+ParamList param_list;
 
 void setup() {
   Serial.begin(38400);
@@ -42,18 +45,38 @@ float read() {
 int count = 0;
 int start = millis();
 
+void draw(float pressure) {
+  display.display.clearDisplay();
+  display.display.setCursor(0, 0);
+
+  for (int i = 0; i < param_list.param_count; i++) {
+    const Param &param = param_list.params[i];
+    display.display.print(param.name);
+    display.display.print(" ");
+    display.display.println(param.value);
+  }
+
+  display.display.print("P=");
+  display.display.println(pressure);
+
+  display.display.display(); // Show initial text
+}
+
 void loop() {
   const float val = float(sensor.read());
   const float pressure = val * 0.0000138368 + 18.38962;
 
-  if (pressure < SETPOINT * DETECTION_FACTOR) {
+  param_list.update();
+  draw(pressure);
+
+  if (pressure < param_list.params[0].value * DETECTION_FACTOR) {
     count = 0;
     start = millis();
   } else {
     count = millis() - start;
   }
 
-  if (pressure < SETPOINT) {
+  if (pressure < param_list.params[0].value) {
     float factor = 1.0;
     analogWrite(motor_pin, 127 * factor);
 
@@ -62,7 +85,6 @@ void loop() {
   }
 
   println(pressure, "mm Hg", count);
-  display.draw(pressure);
 
   if (count > HOLD_SECONDS * 1000) {
     Serial.println("Deflate!");

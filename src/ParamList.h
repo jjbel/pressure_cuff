@@ -2,9 +2,12 @@
 #include "Param.h"
 
 struct ParamList {
-  const int param_count = 1;
+  const int param_count = 3;
 
-  Param params[1] = {{"Pmax", 90, 10, 10, 10, 120}};
+  Param params[3] = {{"Pmax", 90, 10, 10, 10, 120},
+                     {"Hi s", 9999, 10, 10, 10, 9999},
+                     {"Lo s", 9999, 10, 10, 10, 9999}};
+
   int index = 0;
 
   Button increase = Button(2);
@@ -21,6 +24,7 @@ struct ParamList {
     }
 
     if (decrease.is_pressed()) {
+      Serial.println("dec");
       params[index].decrement();
     }
 

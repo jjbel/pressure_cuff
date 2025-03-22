@@ -116,7 +116,7 @@ void loop() {
 
     // TODO shd be 2 modes..high and low
     display.display.setCursor(0, 3 * line_height);
-    display.display.print("P=");
+    display.display.print("P = ");
     display.display.print(0);
 
     count = 0;

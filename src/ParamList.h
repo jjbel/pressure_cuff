@@ -5,8 +5,8 @@ struct ParamList {
   const int param_count = 3;
 
   Param params[3] = {{"Pmax", 90, 10, 10, 10, 120},
-                     {"Hi s", 9999, 10, 10, 10, 9999},
-                     {"Lo s", 9999, 10, 10, 10, 9999}};
+                     {"Hi s", 10, 10, 10, 10, 9999},
+                     {"Lo s", 4, 10, 10, 10, 9999}};
 
   int index = 0;
 
